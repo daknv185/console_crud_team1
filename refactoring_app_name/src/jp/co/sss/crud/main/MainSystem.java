@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 
 import jp.co.sss.crud.db.DBController;
+import jp.co.sss.crud.util.Constant;
 
 /**
  * 社員情報管理システム開始クラス 社員情報管理システムはこのクラスから始まる。<br/>
@@ -31,15 +32,15 @@ public class MainSystem {
 
 		do {
 			// メニューの表示
-			System.out.println("=== 社員管理システム ===");
-			System.out.println("1.全件表示");
-			System.out.println("2.社員名検索");
-			System.out.println("3.部署ID検索");
-			System.out.println("4.新規登録");
-			System.out.println("5.更新");
-			System.out.println("6.削除");
-			System.out.println("7.終了");
-			System.out.print("メニュー番号を入力してください：");
+			System.out.println(Constant.TITLE_HEADER);
+			System.out.println(Constant.TITLE_FIND_ALL);
+			System.out.println(Constant.TITLE_FIND_BY_EMP_NAME);
+			System.out.println(Constant.TITLE_FIND_BY_DEPT_ID);
+			System.out.println(Constant.TITLE_REGIST);
+			System.out.println(Constant.TITLE_UPDATE);
+			System.out.println(Constant.TITLE_DELETE);
+			System.out.println(Constant.TITLE_END);
+			System.out.print(Constant.TITLE_MENU);
 
 			// メニュー番号の入力
 			String menuNoStr = br.readLine();
@@ -49,35 +50,35 @@ public class MainSystem {
 			switch (menuNo) {
 			case 1:
 				// 全件表示機能の呼出
-				DBController.find();
+				DBController.findAll();
 				break;
 
 			case 2:
 				// 社員名検索
-				System.out.print("社員名:");
+				System.out.print(Constant.FIND_BY_EMP_NAME);
 
 				// 検索機能の呼出
-				DBController.findB();
+				DBController.findByEmpName();
 				break;
 
 			case 3:
 				// 検索する部署IDを入力
-				System.out.print("部署ID(1:営業部、2:経理部、3:総務部)を入力してください:");
-				String deptIdA = br.readLine();
+				System.out.print(Constant.FIND_BY_DEPT_ID);
+				String findByDeptId = br.readLine();
 
 				// 検索機能の呼出
-				DBController.findC(deptIdA);
+				DBController.findDeptId(findByDeptId);
 				break;
 
 			case 4:
 				// 登録する値を入力
-				System.out.print("社員名:");
+				System.out.print(Constant.REGIST_EMP_NAME);
 				String emp_name = br.readLine();
-				System.out.print("性別(0:その他, 1:男性, 2:女性, 9:回答なし):");
+				System.out.print(Constant.REGIST_GENDER);
 				String Seibetsu = br.readLine();
-				System.out.print("生年月日(西暦年/月/日):");
+				System.out.print(Constant.REGIST_BIRTHDAY);
 				String birthday = br.readLine();
-				System.out.print("部署ID(1:営業部、2:経理部、3:総務部):");
+				System.out.print(Constant.REGIST_DEPT);
 				String deptIdB = br.readLine();
 
 				// 登録機能の呼出
