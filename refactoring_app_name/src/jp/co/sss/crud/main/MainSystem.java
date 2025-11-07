@@ -73,7 +73,7 @@ public class MainSystem {
 			case 4:
 				// 登録する値を入力
 				System.out.print(Constant.REGIST_EMP_NAME);
-				String emp_name = br.readLine();
+				String empName = br.readLine();
 				System.out.print(Constant.REGIST_GENDER);
 				String gender = br.readLine();
 				System.out.print(Constant.REGIST_BIRTHDAY);
@@ -82,7 +82,7 @@ public class MainSystem {
 				String deptId = br.readLine();
 
 				// 登録機能の呼出
-				DBController.insert(emp_name, gender, birthday, deptId);
+				DBController.insert(empName, gender, birthday, deptId);
 				break;
 
 			case 5:
